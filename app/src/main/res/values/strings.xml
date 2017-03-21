@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">PhoneTroller</string>
+    <string name="a_button">A</string>
+    <string name="b_button">B</string>
+    <string name="c_button">C</string>
+    <string name="d_button">D</string>
+    <string name="accel_button">Accelerate</string>
+    <string name="brake_button">Brake</string>
+    <string name="settings_button">Settings</string>
+    <string name="start_button">Start</string>
+    <string name="back_button">Back</string>
+</resources>
