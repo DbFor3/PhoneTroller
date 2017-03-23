@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:text="@string/start_button"
         android:layout_marginLeft="@dimen/menu_buttons_margin3"
-        android:id="@+id/button" />
+        android:id="@+id/start_button" />
 
     <ImageButton
         android:layout_width="40dp"
@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:text="@string/settings_button"
         android:layout_marginLeft="@dimen/menu_buttons_margin2"
-        android:id="@+id/button2"
+        android:id="@+id/settings_button"
         />
 
     <Button
@@ -56,7 +56,7 @@
         android:layout_height="wrap_content"
         android:text="@string/back_button"
         android:layout_marginLeft="@dimen/menu_buttons_margin1"
-        android:id="@+id/button3"
+        android:id="@+id/back_button"
         />
 
     <ImageButton
@@ -68,19 +68,53 @@
         android:layout_marginTop="@dimen/dpad_vertical_margin3"/>
 
 
+    <ImageButton
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="215dp"
+        android:layout_marginLeft="170dp"
+        android:background="@drawable/Xbuttonpic"
+        android:id="@+id/x_button"/>
+    <ImageButton
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="215dp"
+        android:layout_marginLeft="260dp"
+        android:background="@drawable/Ybuttonpic"
+        android:id="@+id/y_button"/>
+    <ImageButton
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="280dp"
+        android:layout_marginLeft="170dp"
+        android:background="@drawable/Abuttonpic"
+        android:id="@+id/a_button"/>
+    <ImageButton
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="280dp"
+        android:layout_marginLeft="260dp"
+        android:background="@drawable/Bbuttonpic"
+        android:id="@+id/b_button"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/brake_button"
-        android:id="@+id/brake_button"
-        android:layout_marginTop="420dp" />
+        android:layout_marginTop="400dp"
+        android:layout_marginLeft="270dp"
+        android:text="@string/rt_button"
+        android:id="@+id/rt_button"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
+        android:layout_marginLeft="0dp"
+        android:text="@string/lt_button"
+        android:id="@+id/lt_button"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/accel_button"
-        android:id="@+id/accel_button"
-        android:layout_marginTop="420dp"
-        android:layout_marginLeft="240dp"/>
+
+
+
+
+
 
 </RelativeLayout>
