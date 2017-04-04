@@ -73,28 +73,28 @@
         android:layout_height="50dp"
         android:layout_marginTop="215dp"
         android:layout_marginLeft="170dp"
-        android:background="@drawable/Xbuttonpic"
+        android:background="@drawable/xbuttonpic"
         android:id="@+id/x_button"/>
     <ImageButton
         android:layout_width="60dp"
         android:layout_height="50dp"
         android:layout_marginTop="215dp"
         android:layout_marginLeft="260dp"
-        android:background="@drawable/Ybuttonpic"
+        android:background="@drawable/ybuttonpic"
         android:id="@+id/y_button"/>
     <ImageButton
         android:layout_width="60dp"
         android:layout_height="50dp"
         android:layout_marginTop="280dp"
         android:layout_marginLeft="170dp"
-        android:background="@drawable/Abuttonpic"
+        android:background="@drawable/abuttonpic"
         android:id="@+id/a_button"/>
     <ImageButton
         android:layout_width="60dp"
         android:layout_height="50dp"
         android:layout_marginTop="280dp"
         android:layout_marginLeft="260dp"
-        android:background="@drawable/Bbuttonpic"
+        android:background="@drawable/bbuttonpic"
         android:id="@+id/b_button"/>
     <Button
         android:layout_width="wrap_content"
