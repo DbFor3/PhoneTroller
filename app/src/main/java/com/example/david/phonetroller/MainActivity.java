@@ -1,6 +1,7 @@
 package com.example.david.phonetroller;
 
 import android.content.Context;
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -70,7 +71,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         mSettingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent i=new Intent(MainActivity.this, MapButtons.class);
+                startActivity(i);
             }
         });
 
