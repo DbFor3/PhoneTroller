@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/start_button"
-        android:layout_marginLeft="135dp"
+        android:layout_marginLeft="110dp"
         android:id="@+id/start_button" />
 
     <ImageButton
@@ -47,7 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/settings_button"
-        android:layout_marginLeft="250dp"
+        android:layout_marginLeft="220dp"
         android:id="@+id/settings_button"
         />
 
@@ -55,7 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/back_button"
-        android:layout_marginLeft="@dimen/menu_buttons_margin1"
+
         android:id="@+id/back_button"
         />
 
@@ -110,10 +110,6 @@
         android:layout_marginLeft="0dp"
         android:text="@string/lt_button"
         android:id="@+id/lt_button"/>
-
-
-
-
 
 
 
