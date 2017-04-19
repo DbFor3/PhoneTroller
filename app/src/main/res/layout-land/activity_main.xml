@@ -105,5 +105,49 @@
         android:layout_marginLeft="35dp"
         android:text="@string/lt_button"
         android:id="@+id/lt_button"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="220dp"
+        android:text="X:"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="220dp"
+        android:layout_marginLeft="220dp"
+        android:text="Y:"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="240dp"
+        android:layout_marginLeft="220dp"
+        android:text="Z:"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="240dp"
+        android:id="@+id/x_sensor"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="220dp"
+        android:layout_marginLeft="240dp"
+        android:id="@+id/y_sensor"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="240dp"
+        android:layout_marginLeft="240dp"
+        android:id="@+id/z_sensor"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#f70707"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="210dp"
+        android:textSize="12sp"
+        android:id="@+id/turnText"/>
 </RelativeLayout>

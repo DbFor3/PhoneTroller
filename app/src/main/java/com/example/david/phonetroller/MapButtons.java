@@ -2,6 +2,7 @@ package com.example.david.phonetroller;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 /**
@@ -18,6 +19,54 @@ public class MapButtons extends AppCompatActivity {
     private RadioGroup ltGroup;
     private RadioGroup rtGroup;
 
+    //a radio buttons
+    private RadioButton atoAButton;
+    private RadioButton atoXButton;
+    private RadioButton atoYButton;
+    private RadioButton atoLTButton;
+    private RadioButton atoRTButton;
+    private RadioButton atoBButton;
+
+
+    //b radio buttons
+    private RadioButton btoAButton;
+    private RadioButton btoXButton;
+    private RadioButton btoYButton;
+    private RadioButton btoLTButton;
+    private RadioButton btoRTButton;
+    private RadioButton btoBButton;
+
+    //x radio buttons
+    private RadioButton xtoAButton;
+    private RadioButton xtoXButton;
+    private RadioButton xtoYButton;
+    private RadioButton xtoLTButton;
+    private RadioButton xtoRTButton;
+    private RadioButton xtoBButton;
+
+    //y radio buttons
+    private RadioButton ytoAButton;
+    private RadioButton ytoXButton;
+    private RadioButton ytoYButton;
+    private RadioButton ytoLTButton;
+    private RadioButton ytoRTButton;
+    private RadioButton ytoBButton;
+
+    //Lt radio buttons
+    private RadioButton lttoAButton;
+    private RadioButton lttoXButton;
+    private RadioButton lttoYButton;
+    private RadioButton lttoLTButton;
+    private RadioButton lttoRTButton;
+    private RadioButton lttoBButton;
+
+    //Rt radio buttons
+    private RadioButton rttoAButton;
+    private RadioButton rttoXButton;
+    private RadioButton rttoYButton;
+    private RadioButton rttoLTButton;
+    private RadioButton rttoRTButton;
+    private RadioButton rttoBButton;
 
 
 
@@ -27,6 +76,7 @@ public class MapButtons extends AppCompatActivity {
         setContentView(R.layout.settings_button_map);
 
         //initialize radio groups and buttons
+
 
     }
 }

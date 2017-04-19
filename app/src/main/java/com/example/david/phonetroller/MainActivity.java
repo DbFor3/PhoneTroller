@@ -2,6 +2,7 @@ package com.example.david.phonetroller;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -12,6 +13,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
     //declare the buttons for the project
@@ -29,21 +32,41 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private ImageButton mUpDpadButton;
     private ImageButton mDownDpadButton;
 
+    //Textview to display environment sensor data
+    private TextView currentX, currentY, currentZ;
+
     //get the environment sensors
     private SensorManager sensorManager;
     private Sensor accelerometer;
     private float lastX, lastY, lastZ;
 
     //these values we need to use to gage the user turning their phone as if it was a steering wheel
-    private float deltaX = 0;
-    private float deltaY = 0;
-    private float deltaZ = 0;
+    public static float deltaX = 0;
+    public static float deltaY = 0;
+    public static float deltaZ = 0;
+
+    //boolean to hold if phone is in portait or landscape
+    public static boolean isPortrait = false;
+    public static boolean isLandscape = true;
+
+    //Turn text View
+    private TextView turnTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initializeViews();
 
+
+        //If orientation is in portait mode
+        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+                    isPortrait = true;
+
+        } else
+        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+            isLandscape = true;
+        }
 
         //checking to see if device has accelerometer
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
@@ -185,9 +208,13 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     public void onSensorChanged(SensorEvent event) {
 
         /**once we find out the values of x y z that simulates the user turning the phone
-            we will put the code for the left or right dpad button getting pressed here to
-            turn the in game car
+         we will put the code for the left or right dpad button getting pressed here to
+         turn the in game car
          */
+        // cleans the current values
+        displayCleanValues();
+        // displays the current x,y,z accelerometer values
+        displayCurrentValues();
 
         // get the change of the x,y,z values of the accelerometer
         deltaX = Math.abs(lastX - event.values[0]);
@@ -197,8 +224,40 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         // if the change is below 2, it is just plain noise
         if (deltaX < 2)
             deltaX = 0;
+
         if (deltaY < 2)
             deltaY = 0;
+
+
+        if (isPortrait == true) {
+            if (deltaX > 0) {
+                turnTextView.setText("TURNING!");
+            }else turnTextView.setText("");
+        } else if (isLandscape == true) {
+            if (deltaY > 0) {
+                turnTextView.setText("TURNING!");
+            } else turnTextView.setText("");
         }
     }
+
+    public void initializeViews() {
+        currentX = (TextView) findViewById(R.id.x_sensor);
+        currentY = (TextView) findViewById(R.id.y_sensor);
+        currentZ = (TextView) findViewById(R.id.z_sensor);
+        turnTextView = (TextView) findViewById(R.id.turnText);
+    }
+    public void displayCleanValues() {
+        currentX.setText("0.0");
+        currentY.setText("0.0");
+        currentZ.setText("0.0");
+    }
+    // display the current x,y,z accelerometer values
+    public void displayCurrentValues() {
+        currentX.setText(Float.toString(deltaX));
+        currentY.setText(Float.toString(deltaY));
+        currentZ.setText(Float.toString(deltaZ));
+    }
+
+
+}
 
