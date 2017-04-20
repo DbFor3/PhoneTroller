@@ -297,6 +297,15 @@
             android:id="@+id/ltbutton_rtradio"/>
     </RadioGroup>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UPDATE"
+        android:id="@+id/updateButton"
+        android:layout_marginTop="245dp"
+        android:layout_marginLeft="145dp"/>
+
+
 
 
 </RelativeLayout>
