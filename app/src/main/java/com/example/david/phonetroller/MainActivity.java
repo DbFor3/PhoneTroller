@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             // success! we have an accelerometer
 
             accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-            sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+            sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_GAME);
         } else {
             // fail! we dont have an accelerometer!
         }
@@ -128,6 +128,16 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             @Override
             public void onClick(View view) {
 
+                /*if (isPortrait == true) {
+                    while (deltaX > 0) {
+                        turnTextView.setText("TURNING Left!");
+                    } turnTextView.setText("");
+                } else if (isLandscape == true) {
+                    while (deltaY > 0) {
+                        turnTextView.setText("TURNING Left!");
+                    } turnTextView.setText("");
+                }*/
+
             }
         });
 
@@ -135,6 +145,17 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         mRightDpadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                /*
+                if (isPortrait == true) {
+                    while (deltaX > 0) {
+                        turnTextView.setText("TURNING Right!");
+                    }turnTextView.setText("");
+                } else if (isLandscape == true) {
+                    while (deltaY > 0) {
+                        turnTextView.setText("TURNING Right!");
+                    }  turnTextView.setText("");
+                }*/
 
             }
         });
@@ -191,7 +212,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     //onResume() register the accelerometer for listening the events
     protected void onResume() {
         super.onResume();
-        sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+        sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_GAME);
     }
 
     //onPause() unregister the accelerometer for stop listening the events
@@ -229,12 +250,13 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             deltaY = 0;
 
 
+
         if (isPortrait == true) {
-            if (deltaX > 0) {
+            if (deltaX > 2) {
                 turnTextView.setText("TURNING!");
             }else turnTextView.setText("");
         } else if (isLandscape == true) {
-            if (deltaY > 0) {
+            if (deltaY > 2) {
                 turnTextView.setText("TURNING!");
             } else turnTextView.setText("");
         }
