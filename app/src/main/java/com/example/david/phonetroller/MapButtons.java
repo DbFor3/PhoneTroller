@@ -1,5 +1,6 @@
 package com.example.david.phonetroller;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
@@ -74,6 +75,13 @@ public class MapButtons extends AppCompatActivity {
     //updateButton
     private Button updateButton;
 
+
+    //switch to landscape portait
+    //Landscape to portait buttons
+    private Button switchToPortrait;
+    private Button switchToLandscape;
+
+
     //wiill need to alter functionality of buttons in MainActivity
 
 
@@ -82,7 +90,34 @@ public class MapButtons extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_button_map);
 
-      //initialize radio groups
+
+        //initialize Buttons
+        switchToLandscape = (Button) findViewById(R.id.landscapeButton2);
+        switchToPortrait = (Button) findViewById(R.id.portaitButton2);
+
+        switchToLandscape.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+
+            }
+        });
+
+        switchToPortrait.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+            }
+        });
+
+
+
+
+
+        //initialize radio groups
         aGroup = (RadioGroup) findViewById(R.id.abuttonmap);
         bGroup = (RadioGroup) findViewById(R.id.bbuttonmap);
         xGroup = (RadioGroup) findViewById(R.id.xbuttonmap);

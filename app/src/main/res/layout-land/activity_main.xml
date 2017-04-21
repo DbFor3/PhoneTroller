@@ -150,4 +150,21 @@
         android:layout_marginLeft="210dp"
         android:textSize="12sp"
         android:id="@+id/turnText"/>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/portaitButton"
+        android:text="Portait"
+        android:layout_marginLeft="10dp"/>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/landscapeButton"
+        android:text="Landscape"
+        android:layout_marginLeft="485dp"/>
+
 </RelativeLayout>

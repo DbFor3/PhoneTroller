@@ -2,6 +2,7 @@ package com.example.david.phonetroller;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -32,12 +33,20 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private ImageButton mUpDpadButton;
     private ImageButton mDownDpadButton;
 
+    //Landscape to portait buttons
+    private Button switchToPortrait;
+    private Button switchToLandscape;
+
+
+
+
     //Textview to display environment sensor data
     private TextView currentX, currentY, currentZ;
 
     //get the environment sensors
     private SensorManager sensorManager;
     private Sensor accelerometer;
+    private Sensor sensor;
     private float lastX, lastY, lastZ;
 
     //these values we need to use to gage the user turning their phone as if it was a steering wheel
@@ -58,6 +67,29 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         setContentView(R.layout.activity_main);
         initializeViews();
 
+        //initialize Buttons
+        switchToLandscape = (Button) findViewById(R.id.landscapeButton);
+        switchToPortrait = (Button) findViewById(R.id.portaitButton);
+
+        switchToLandscape.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+
+            }
+        });
+
+        switchToPortrait.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+            }
+        });
+
+
 
         //If orientation is in portait mode
         if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
@@ -68,6 +100,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             isLandscape = true;
         }
 
+        /*
         //checking to see if device has accelerometer
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         if (sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER) != null) {
@@ -77,7 +110,12 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_GAME);
         } else {
             // fail! we dont have an accelerometer!
-        }
+        }*/
+
+        //declaring Sensor Manager and sensor type
+        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+
 
 
         //initiate the buttons and set on click listeners
@@ -209,6 +247,95 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             }
         });
     }
+
+
+    @Override
+    public void onAccuracyChanged(Sensor arg0, int arg1) {
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+
+        // cleans the current values
+        displayCleanValues();
+        // displays the current x,y,z accelerometer values
+        displayCurrentValues();
+        deltaX = event.values[0];
+        deltaY = event.values[1];
+        deltaZ  = event.values[2];
+
+        if(isPortrait==true) {
+            if (Math.abs(deltaX) > Math.abs(deltaY)) {
+                if (deltaX < 0) {
+
+                    turnTextView.setText("TURNING RIGHT!");
+                }
+                if (deltaX > 0) {
+
+                    turnTextView.setText("TURNING LEFT!");
+                }
+            } else {
+                if (deltaY < 0) {
+
+                    //turnTextView.setText("You tilt the device up");
+                }
+                if (deltaY > 0) {
+
+                    //turnTextView.setText("You tilt the device down");
+                }
+            }
+            if (deltaX > (-2) && deltaX < (2) && deltaY > (-2) && deltaY < (2)) {
+
+                turnTextView.setText("");
+            }
+        }
+
+
+        if(isLandscape==true){
+            if (Math.abs(deltaX) > Math.abs(deltaY)) {
+                if (deltaX < 0) {
+
+                    //turnTextView.setText("TURNING RIGHT!");
+                }
+                if (deltaX > 0) {
+
+                    //turnTextView.setText("TURNING LEFT ");
+                }
+            } else {
+                if (deltaY < 0) {
+
+                    turnTextView.setText("TURNING LEFT!");
+                }
+                if (deltaY > 0) {
+
+                    turnTextView.setText("TURNING RIGHT!");
+                }
+            }
+            if (deltaX > (-2) && deltaX < (2) && deltaY > (-2) && deltaY < (2)) {
+
+                turnTextView.setText("");
+            }
+        }
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        //unregister Sensor listener
+        sensorManager.unregisterListener(this);
+    }
+
+
+
+
+    /*
     //onResume() register the accelerometer for listening the events
     protected void onResume() {
         super.onResume();
@@ -233,10 +360,11 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
          turn the in game car
          */
         // cleans the current values
-        displayCleanValues();
+        //displayCleanValues();
         // displays the current x,y,z accelerometer values
-        displayCurrentValues();
+        //displayCurrentValues();
 
+/*
         // get the change of the x,y,z values of the accelerometer
         deltaX = Math.abs(lastX - event.values[0]);
         deltaY = Math.abs(lastY - event.values[1]);
@@ -249,7 +377,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         if (deltaY < 2)
             deltaY = 0;
 
-
+/*
 
         if (isPortrait == true) {
             if (deltaX > 2) {
@@ -260,7 +388,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 turnTextView.setText("TURNING!");
             } else turnTextView.setText("");
         }
-    }
+    }*/
+
 
     public void initializeViews() {
         currentX = (TextView) findViewById(R.id.x_sensor);

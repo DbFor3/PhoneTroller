@@ -99,51 +99,51 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
-        android:layout_marginLeft="270dp"
+        android:layout_marginTop="430dp"
+        android:layout_marginLeft="250dp"
         android:text="@string/rt_button"
         android:id="@+id/rt_button"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="430dp"
         android:layout_marginLeft="0dp"
         android:text="@string/lt_button"
         android:id="@+id/lt_button"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="410dp"
         android:layout_marginLeft="120dp"
         android:text="X:"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="420dp"
+        android:layout_marginTop="430dp"
         android:layout_marginLeft="120dp"
         android:text="Y:"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="440dp"
+        android:layout_marginTop="450dp"
         android:layout_marginLeft="120dp"
         android:text="Z:"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="410dp"
         android:layout_marginLeft="140dp"
         android:id="@+id/x_sensor"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="420dp"
+        android:layout_marginTop="430dp"
         android:layout_marginLeft="140dp"
         android:id="@+id/y_sensor"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="440dp"
+        android:layout_marginTop="450dp"
         android:layout_marginLeft="140dp"
         android:id="@+id/z_sensor"/>
     <TextView
@@ -154,6 +154,19 @@
         android:layout_marginLeft="200dp"
         android:textSize="12sp"
         android:id="@+id/turnText"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/landscapeButton"
+        android:text="Landscape"
+        android:layout_marginTop="290dp"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/portaitButton"
+        android:text="Portrait"
+        android:layout_marginTop="340dp"/>
 
 
 </RelativeLayout>

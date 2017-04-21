@@ -303,9 +303,24 @@
         android:text="UPDATE"
         android:id="@+id/updateButton"
         android:layout_marginTop="245dp"
-        android:layout_marginLeft="145dp"/>
+        android:layout_marginLeft="130dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/portaitButton2"
+        android:text="Portait"
+        android:layout_marginTop="245dp"
+        android:layout_marginLeft="10dp"/>
 
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/landscapeButton2"
+        android:text="Landscape"
+        android:layout_marginTop="245dp"
+        android:layout_marginLeft="240dp"/>
 
 
 </RelativeLayout>
